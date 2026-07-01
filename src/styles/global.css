@@ -1,0 +1,1625 @@
+/* =========================================================
+   FEMORESTUDIO GLOBAL STYLES
+   Theme: Rich emerald, soft blush, deep black, gold accents
+   ========================================================= */
+
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap");
+
+/* =========================================================
+   1. BRAND VARIABLES
+   ========================================================= */
+
+:root {
+  --black: #080908;
+  --soft-black: #101211;
+
+  --emerald-dark: #062d24;
+  --emerald: #0f5c46;
+  --emerald-light: #18a67a;
+  --emerald-soft: #8bd8bd;
+
+  --gold: #d8b764;
+  --blush: #eac7c7;
+  --cream: #f7f1ea;
+
+  --wine: #55132e;
+  --muted-text: rgba(247, 241, 234, 0.72);
+  --soft-border: rgba(139, 216, 189, 0.22);
+  --gold-border: rgba(216, 183, 100, 0.28);
+}
+
+/* =========================================================
+   2. RESET + BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--cream);
+  font-family: "Poppins", sans-serif;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(15, 92, 70, 0.42), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(85, 19, 46, 0.32), transparent 28%),
+    radial-gradient(circle at 50% 95%, rgba(216, 183, 100, 0.08), transparent 36%),
+    var(--black);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: 70vh;
+  padding: 70px 8%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+h1 {
+  color: var(--emerald-soft);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.85;
+  margin: 0;
+  text-shadow: 0 0 35px rgba(24, 166, 122, 0.22);
+}
+
+h2 {
+  color: var(--cream);
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1;
+  margin: 0 0 24px;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* =========================================================
+   3. NAVBAR + LOGO
+   ========================================================= */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 8%;
+  backdrop-filter: blur(18px);
+  background: rgba(8, 9, 8, 0.84);
+  border-bottom: 1px solid var(--soft-border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo-mark {
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid var(--emerald-soft);
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-family: "Great Vibes", cursive;
+  font-size: 2.35rem;
+  line-height: 1;
+
+  color: var(--emerald-soft);
+  box-shadow: 0 0 25px rgba(24, 166, 122, 0.15);
+}
+
+.logo-text {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--emerald-soft);
+  font-size: 1.8rem;
+  line-height: 0.85;
+}
+
+.logo-text span {
+  display: block;
+  margin-left: 28px;
+  margin-top: 4px;
+
+  font-family: "Great Vibes", cursive;
+  font-size: 1.45rem;
+  color: var(--blush);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.nav-links a {
+  position: relative;
+  margin-left: 0 !important;
+
+  color: rgba(247, 241, 234, 0.82);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.nav-links a:hover {
+  color: var(--emerald-soft);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+
+  width: 0;
+  height: 1px;
+
+  background: linear-gradient(90deg, var(--emerald-soft), var(--gold));
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+nav .logo:first-child {
+  font-size: unset;
+}
+
+/* =========================================================
+   4. BUTTONS + SMALL TEXT
+   ========================================================= */
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 18px;
+}
+
+.script-text {
+  font-family: "Great Vibes", cursive;
+  color: var(--blush);
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 10px 0 0;
+  text-shadow: 0 0 25px rgba(234, 199, 199, 0.18);
+}
+
+.btn {
+  padding: 14px 24px;
+
+  border: 1px solid var(--emerald-soft);
+  background: transparent;
+
+  color: var(--emerald-soft);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(24, 166, 122, 0.2);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+  color: var(--cream);
+  border-color: var(--gold);
+}
+
+.secondary {
+  color: var(--emerald-soft);
+}
+
+/* =========================================================
+   5. HERO SECTION
+   ========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 82vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  border-bottom: 1px solid var(--soft-border);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  left: 50%;
+
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle, rgba(15, 92, 70, 0.62), transparent 66%),
+    radial-gradient(circle, rgba(234, 199, 199, 0.16), transparent 55%);
+
+  transform: translateX(-50%);
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.hero::after {
+  content: "FEMORESTUDIO";
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(3rem, 12vw, 10rem);
+  font-weight: 600;
+  letter-spacing: 18px;
+
+  color: rgba(139, 216, 189, 0.045);
+  white-space: nowrap;
+  z-index: -1;
+}
+
+.hero .script-text {
+  margin-top: 14px;
+  margin-bottom: 22px;
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
+}
+
+.hero-text {
+  max-width: 780px;
+  color: var(--muted-text);
+  font-size: 1.1rem;
+  margin: 16px 0 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* =========================================================
+   6. PAGE HEADERS
+   ========================================================= */
+
+.page-header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 50px;
+}
+
+.page-intro {
+  max-width: 720px;
+  color: var(--muted-text);
+  line-height: 1.8;
+  margin: 20px auto 0;
+}
+
+/* =========================================================
+   7. ABOUT SECTION
+   ========================================================= */
+
+.about-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 8%;
+  text-align: center;
+  border-top: 1px solid var(--soft-border);
+}
+
+.about-section p:last-child {
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   8. WHY SECTION
+   ========================================================= */
+
+.why-section {
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.why-grid {
+  margin-top: 70px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  padding: 45px;
+
+  border: 1px solid var(--soft-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.24), transparent 65%);
+
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--emerald-soft);
+  box-shadow: 0 25px 70px rgba(15, 92, 70, 0.22);
+}
+
+.why-card h3 {
+  color: var(--emerald-soft);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.why-card p {
+  color: var(--muted-text);
+  line-height: 1.9;
+}
+
+/* =========================================================
+   9. EDITORIAL GALLERY
+   ========================================================= */
+
+.gallery-section {
+  padding: 120px 8%;
+  border-top: 1px solid var(--soft-border);
+}
+
+.gallery-heading {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 55px;
+}
+
+.gallery-heading p:last-child {
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: repeat(2, 320px);
+  gap: 22px;
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--soft-border);
+  background:
+    linear-gradient(rgba(8, 9, 8, 0.1), rgba(8, 9, 8, 0.95)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.48), transparent 60%);
+
+  background-size: 108%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background-size 0.45s ease, filter 0.35s ease;
+}
+
+.gallery-card:first-child {
+  grid-row: span 2;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--emerald-soft);
+  box-shadow: 0 25px 70px rgba(15, 92, 70, 0.28);
+  background-size: 116%;
+  filter: saturate(1.08) contrast(1.05);
+}
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(135deg, rgba(139, 216, 189, 0.12), transparent 32%, rgba(234, 199, 199, 0.12));
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.gallery-card:hover::after {
+  opacity: 1;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.gallery-overlay p {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+.gallery-overlay h3 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  margin: 0;
+}
+
+/* =========================================================
+   10. PRODUCTS PAGE
+   ========================================================= */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 430px));
+  justify-content: center;
+  gap: 22px;
+}
+
+.product-card {
+  min-height: 520px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--soft-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.22), transparent 65%);
+
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--emerald-soft);
+  box-shadow: 0 25px 70px rgba(15, 92, 70, 0.28);
+}
+
+.product-image-placeholder {
+  position: relative;
+
+  min-height: 300px;
+  padding: 26px;
+
+  display: flex;
+  align-items: end;
+  justify-content: center;
+
+  background:
+    linear-gradient(rgba(8, 9, 8, 0.1), rgba(8, 9, 8, 0.92)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.45), transparent 60%);
+
+  background-size: 108%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: background-size 0.45s ease, filter 0.35s ease;
+}
+
+.product-card:hover .product-image-placeholder {
+  background-size: 116%;
+  filter: saturate(1.08) contrast(1.05);
+}
+
+.product-image-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(135deg, rgba(139, 216, 189, 0.13), transparent 32%, rgba(234, 199, 199, 0.12));
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.product-card:hover .product-image-placeholder::after {
+  opacity: 1;
+}
+
+.product-image-placeholder span {
+  position: relative;
+  z-index: 2;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--emerald-soft);
+  text-align: center;
+}
+
+.product-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+  text-align: center;
+}
+
+.product-info p:first-child {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+}
+
+.product-info h3 {
+  color: var(--cream);
+  font-size: 2rem;
+  margin: 8px 0;
+}
+
+.product-info p {
+  color: var(--muted-text);
+  line-height: 1.6;
+}
+
+.product-info strong {
+  color: var(--cream);
+}
+
+.product-link {
+  align-self: center;
+  margin-top: auto;
+
+  color: var(--emerald-soft);
+  border-bottom: 1px solid var(--emerald-soft);
+
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.product-link:hover {
+  color: var(--blush);
+  letter-spacing: 2px;
+}
+
+/* =========================================================
+   11. CUSTOM ORDER SECTION
+   ========================================================= */
+
+.custom-order-section {
+  margin: 110px auto 0;
+  padding: 80px 8%;
+
+  max-width: 1100px;
+
+  text-align: center;
+  border: 1px solid var(--soft-border);
+
+  background:
+    radial-gradient(circle at center, rgba(15, 92, 70, 0.32), transparent 60%),
+    rgba(255, 255, 255, 0.02);
+}
+
+.custom-order-section h2 {
+  max-width: 850px;
+  margin: 0 auto 45px;
+}
+
+.custom-order-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-bottom: 42px;
+}
+
+.custom-order-grid div {
+  padding: 28px;
+
+  border: 1px solid rgba(139, 216, 189, 0.16);
+  background: rgba(8, 9, 8, 0.45);
+}
+
+.custom-order-grid h3 {
+  color: var(--emerald-soft);
+  font-size: 1.9rem;
+  margin: 0 0 14px;
+}
+
+.custom-order-grid p {
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+.custom-order-btn {
+  display: inline-block;
+}
+
+/* =========================================================
+   12. PROCESS SECTION
+   ========================================================= */
+
+.process-section {
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.step {
+  padding: 40px 30px;
+
+  border: 1px solid var(--soft-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.22), transparent 65%);
+
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+  border-color: var(--emerald-soft);
+  box-shadow: 0 25px 70px rgba(15, 92, 70, 0.22);
+}
+
+.step span {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+}
+
+.step h3 {
+  color: var(--emerald-soft);
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+.step p {
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   13. CONTACT PAGE
+   ========================================================= */
+
+.contact-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 50px;
+  align-items: start;
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-info,
+.contact-form {
+  padding: 42px;
+
+  border: 1px solid var(--soft-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.22), transparent 65%);
+}
+
+.contact-info p {
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.contact-links a {
+  color: var(--emerald-soft);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+
+  border: 1px solid rgba(139, 216, 189, 0.22);
+  background: #080908;
+  color: var(--cream);
+
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--emerald-soft);
+  box-shadow: 0 0 0 3px rgba(24, 166, 122, 0.12);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+/* =========================================================
+   14. INSTAGRAM CTA
+   ========================================================= */
+
+.instagram-cta {
+  padding: 120px 8%;
+
+  text-align: center;
+  border-top: 1px solid var(--soft-border);
+
+  background:
+    radial-gradient(circle at center, rgba(15, 92, 70, 0.38), transparent 55%),
+    linear-gradient(rgba(8, 9, 8, 0.95), rgba(8, 9, 8, 1));
+}
+
+.instagram-cta h2 {
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.instagram-cta p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0 auto;
+
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+.instagram-buttons {
+  margin-top: 38px;
+
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 80px 8% 34px;
+
+  text-align: center;
+  border-top: 1px solid var(--soft-border);
+
+  background:
+    radial-gradient(circle at center, rgba(15, 92, 70, 0.28), transparent 48%),
+    #080908;
+}
+
+.footer-brand {
+  margin-bottom: 52px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  text-align: center;
+}
+
+.footer-logo {
+  width: 58px;
+  height: 58px;
+
+  border: 1px solid var(--emerald-soft);
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-family: "Great Vibes", cursive;
+  font-size: 2.6rem;
+  color: var(--emerald-soft);
+}
+
+.footer-brand h3 {
+  color: var(--emerald-soft);
+  font-size: 2.2rem;
+  margin: 0 0 8px;
+}
+
+.footer-brand p {
+  color: rgba(247, 241, 234, 0.65);
+  margin: 0;
+}
+
+.footer-links {
+  margin: 0 auto;
+  max-width: 720px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 40px;
+
+  text-align: center;
+}
+
+.footer-links h4 {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  display: block;
+
+  color: rgba(247, 241, 234, 0.72);
+  margin-bottom: 12px;
+
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--emerald-soft);
+}
+
+.footer-bottom {
+  margin-top: 55px;
+  padding-top: 24px;
+
+  border-top: 1px solid rgba(139, 216, 189, 0.14);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  color: rgba(247, 241, 234, 0.48);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* =========================================================
+   16. REMOVED / LEGACY SECTIONS
+   ========================================================= */
+
+.featured-section {
+  display: none;
+}
+
+/* =========================================================
+   17. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .why-grid,
+  .custom-order-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .gallery-card,
+  .gallery-card:first-child {
+    min-height: 320px;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 850px) {
+  nav {
+    padding: 18px 6%;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  .hero-buttons,
+  .instagram-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero::after {
+    letter-spacing: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 55px 6%;
+  }
+
+  .hero {
+    min-height: 78vh;
+  }
+
+  .logo {
+    gap: 14px;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+  }
+
+  .logo-text {
+    font-size: 1.55rem;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   18. BURGUNDY + GLITZ UPGRADE
+   Adds fierce burgundy, blush script details, and subtle glitter.
+   ========================================================= */
+
+:root {
+  --burgundy: #7a1238;
+  --burgundy-dark: #3d071d;
+  --burgundy-soft: #b8325f;
+  --glitter-gold: #f2d27a;
+}
+
+/* Possible VS Code fix for mask-image warning/error */
+body::before {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+}
+
+/* Richer background: emerald + burgundy */
+body {
+  background:
+    radial-gradient(circle at 16% 8%, rgba(15, 92, 70, 0.44), transparent 30%),
+    radial-gradient(circle at 84% 24%, rgba(122, 18, 56, 0.42), transparent 32%),
+    radial-gradient(circle at 50% 88%, rgba(216, 183, 100, 0.1), transparent 35%),
+    var(--black);
+}
+
+/* Cursive becomes blush/burgundy instead of only emerald */
+.script-text {
+  color: var(--blush);
+  text-shadow:
+    0 0 18px rgba(122, 18, 56, 0.55),
+    0 0 30px rgba(234, 199, 199, 0.18);
+}
+
+.hero .script-text {
+  background: linear-gradient(
+    90deg,
+    var(--blush),
+    var(--burgundy-soft),
+    var(--glitter-gold)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Main highlights: burgundy + gold instead of too much gold */
+.eyebrow,
+.product-info p:first-child,
+.gallery-overlay p,
+.contact-form label,
+.footer-links h4 {
+  color: var(--glitter-gold);
+}
+
+h1 {
+  color: var(--emerald-soft);
+  text-shadow:
+    0 0 35px rgba(24, 166, 122, 0.25),
+    0 0 60px rgba(122, 18, 56, 0.18);
+}
+
+h2::selection,
+h1::selection,
+p::selection {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+/* Buttons feel more fierce */
+.primary {
+  background: linear-gradient(
+    135deg,
+    var(--emerald-dark),
+    var(--emerald),
+    var(--burgundy)
+  );
+  color: var(--cream);
+  border-color: var(--glitter-gold);
+}
+
+.secondary {
+  color: var(--blush);
+  border-color: rgba(234, 199, 199, 0.45);
+}
+
+.btn:hover {
+  box-shadow:
+    0 12px 35px rgba(122, 18, 56, 0.28),
+    0 0 28px rgba(242, 210, 122, 0.12);
+}
+
+/* Hero glow becomes emerald + burgundy */
+.hero::before {
+  background:
+    radial-gradient(circle, rgba(15, 92, 70, 0.56), transparent 62%),
+    radial-gradient(circle, rgba(122, 18, 56, 0.42), transparent 70%),
+    radial-gradient(circle, rgba(242, 210, 122, 0.1), transparent 58%);
+}
+
+/* Glitter layer on hero */
+.hero {
+  background-image:
+    radial-gradient(circle at 22% 32%, rgba(242, 210, 122, 0.24) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 28%, rgba(234, 199, 199, 0.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 60% 72%, rgba(139, 216, 189, 0.18) 0 1px, transparent 2px);
+  background-size: 180px 180px, 230px 230px, 260px 260px;
+}
+
+/* Card highlights */
+.why-card,
+.step,
+.product-card,
+.gallery-card,
+.contact-info,
+.contact-form,
+.custom-order-section {
+  border-color: rgba(139, 216, 189, 0.22);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at top left, rgba(15, 92, 70, 0.24), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(122, 18, 56, 0.24), transparent 60%);
+}
+
+.why-card:hover,
+.step:hover,
+.product-card:hover,
+.gallery-card:hover {
+  border-color: var(--blush);
+  box-shadow:
+    0 25px 70px rgba(122, 18, 56, 0.32),
+    0 0 35px rgba(24, 166, 122, 0.12);
+}
+
+/* Product/gallery hover overlay: burgundy, blush, emerald */
+.product-image-placeholder::after,
+.gallery-card::after {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 216, 189, 0.16),
+      transparent 30%,
+      rgba(122, 18, 56, 0.24),
+      rgba(242, 210, 122, 0.08)
+    );
+}
+
+/* Links feel prettier */
+.product-link,
+.contact-links a {
+  color: var(--blush);
+  border-color: var(--blush);
+}
+
+.product-link:hover,
+.contact-links a:hover,
+.nav-links a:hover {
+  color: var(--glitter-gold);
+}
+
+/* Logo gets emerald + blush balance */
+.logo-mark,
+.footer-logo {
+  color: var(--blush);
+  border-color: var(--emerald-soft);
+  box-shadow:
+    0 0 25px rgba(24, 166, 122, 0.18),
+    0 0 18px rgba(122, 18, 56, 0.22);
+}
+
+.logo-text,
+.footer-brand h3 {
+  color: var(--emerald-soft);
+}
+
+.logo-text span {
+  color: var(--blush);
+}
+
+/* Footer more seductive */
+.site-footer {
+  background:
+    radial-gradient(circle at center, rgba(15, 92, 70, 0.22), transparent 45%),
+    radial-gradient(circle at 20% 50%, rgba(122, 18, 56, 0.26), transparent 40%),
+    #080908;
+}
+
+/* =========================================================
+   19. HERO POLISH + BETTER ORDER FEEL
+   Readable script, darker emerald edges, more glitter,
+   burgundy logo ring.
+   ========================================================= */
+
+/* burgundy ring around the F logo */
+.logo-mark,
+.footer-logo {
+  border-color: var(--burgundy-soft);
+  box-shadow:
+    0 0 20px rgba(122, 18, 56, 0.22),
+    0 0 18px rgba(15, 92, 70, 0.14);
+}
+
+/* make hero content sit above glitter/glow */
+.hero > *:not(.hero-glow) {
+  position: relative;
+  z-index: 2;
+}
+
+/* darker home-page edges and more dramatic centre */
+.hero {
+  background:
+    radial-gradient(circle at center, rgba(15, 92, 70, 0.26), transparent 36%),
+    linear-gradient(
+      90deg,
+      rgba(2, 10, 8, 0.96) 0%,
+      rgba(4, 20, 16, 0.72) 14%,
+      rgba(4, 20, 16, 0.18) 50%,
+      rgba(4, 20, 16, 0.72) 86%,
+      rgba(2, 10, 8, 0.96) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 10, 8, 0.62) 0%,
+      rgba(4, 18, 14, 0.12) 28%,
+      rgba(4, 18, 14, 0.12) 72%,
+      rgba(2, 10, 8, 0.72) 100%
+    );
+}
+
+/* hero glow slightly richer */
+.hero::before {
+  background:
+    radial-gradient(circle, rgba(15, 92, 70, 0.52), transparent 60%),
+    radial-gradient(circle, rgba(122, 18, 56, 0.34), transparent 70%),
+    radial-gradient(circle, rgba(234, 199, 199, 0.12), transparent 55%);
+}
+
+/* make the cursive line readable */
+.hero .script-text {
+  margin-top: 18px;
+  margin-bottom: 24px;
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: 0.5px;
+
+  background: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+
+  color: var(--blush);
+  text-shadow:
+    0 0 10px rgba(122, 18, 56, 0.24),
+    0 0 18px rgba(234, 199, 199, 0.12);
+}
+
+/* a touch more breathing room under the title */
+.hero h1 {
+  margin-bottom: 2px;
+}
+
+/* More glitter / floating sparkles */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-glow::before,
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  inset: -10% 0 0 0;
+  opacity: 0.85;
+  background-repeat: repeat;
+  animation: glitterFall 18s linear infinite;
+}
+
+/* smaller glitter layer */
+.hero-glow::before {
+  background-image:
+    radial-gradient(circle, rgba(242, 210, 122, 0.34) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(234, 199, 199, 0.24) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(139, 216, 189, 0.2) 0 1px, transparent 1.8px);
+  background-size: 160px 160px, 210px 210px, 260px 260px;
+  background-position: 0 0, 40px 60px, 90px 20px;
+}
+
+/* slightly bigger glitter layer */
+.hero-glow::after {
+  animation-duration: 28s;
+  opacity: 0.45;
+  background-image:
+    radial-gradient(circle, rgba(242, 210, 122, 0.26) 0 1.2px, transparent 2px),
+    radial-gradient(circle, rgba(234, 199, 199, 0.18) 0 1.2px, transparent 2px);
+  background-size: 240px 240px, 300px 300px;
+  background-position: 30px 10px, 130px 90px;
+}
+
+@keyframes glitterFall {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(90px);
+  }
+}
+
+/* =========================================================
+   20. EDITORIAL GALLERY UPGRADE
+   Cleaner, more fashion-campaign, better image visibility.
+   ========================================================= */
+
+.gallery-section {
+  position: relative;
+}
+
+.editorial-gallery {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: 340px 340px;
+  gap: 24px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.editorial-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+
+  border: 1px solid rgba(139, 216, 189, 0.24);
+  background:
+    linear-gradient(rgba(8, 9, 8, 0.1), rgba(8, 9, 8, 0.58)),
+    radial-gradient(circle at top, rgba(15, 92, 70, 0.42), transparent 60%);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: flex-end;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+}
+
+.editorial-card-1 {
+  grid-row: span 2;
+}
+
+.editorial-card-3 {
+  background-size: contain;
+  background-color: #090a09;
+}
+
+.editorial-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(8, 9, 8, 0.08) 35%,
+      rgba(8, 9, 8, 0.72) 100%
+    );
+  z-index: 1;
+}
+
+.editorial-card::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(242, 210, 122, 0.18);
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.editorial-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--blush);
+  box-shadow:
+    0 28px 75px rgba(122, 18, 56, 0.34),
+    0 0 38px rgba(15, 92, 70, 0.16);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+.editorial-card:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.editorial-card-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 34px;
+}
+
+.editorial-card-content p {
+  color: var(--glitter-gold);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.72rem;
+  margin-bottom: 10px;
+}
+
+.editorial-card-content h3 {
+  color: var(--cream);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 0.9;
+  margin: 0;
+  text-shadow: 0 0 28px rgba(8, 9, 8, 0.8);
+}
+
+.editorial-card-3 .editorial-card-content h3 {
+  color: var(--blush);
+}
+
+.gallery-cta {
+  margin-top: 42px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hide old gallery grid styling if it still exists above */
+.gallery-grid {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .editorial-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .editorial-card,
+  .editorial-card-1 {
+    min-height: 380px;
+    grid-row: auto;
+  }
+
+  .editorial-card-3 {
+    background-size: cover;
+  }
+}
+
+/* =========================================================
+   21. FAST FIX PACK
+   Active nav, scroll reveal, shimmer buttons, smoother polish.
+   ========================================================= */
+
+/* Active navbar link */
+.nav-links a.active {
+  color: var(--glitter-gold);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(42px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smoother website feel */
+section,
+main {
+  scroll-margin-top: 100px;
+}
+
+/* Button shimmer */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(247, 241, 234, 0.28),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.btn:hover::before {
+  left: 130%;
+}
+
+/* Cleaner hero buttons */
+.hero-buttons .btn,
+.instagram-buttons .btn,
+.custom-order-btn {
+  min-width: 190px;
+  text-align: center;
+}
+
+/* More premium navbar spacing */
+nav {
+  min-height: 92px;
+}
+
+.nav-links a {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+}
+
+/* Logo hover polish */
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+/* Cards feel more touchable */
+.why-card,
+.step,
+.product-card,
+.editorial-card,
+.contact-info,
+.contact-form,
+.custom-order-section {
+  backdrop-filter: blur(12px);
+}
+
+/* Better focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--glitter-gold);
+  outline-offset: 4px;
+}
