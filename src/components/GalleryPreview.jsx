@@ -1,7 +1,52 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { siteContent } from "../data/siteContent";
+import { client, urlFor } from "../sanity/client";
 
 function GalleryPreview() {
+  const [galleryItems, setGalleryItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    client
+      .fetch(`
+        *[_type == "galleryItem"] | order(displayOrder asc) {
+          _id,
+          slot,
+          image,
+          altText,
+          imagePosition,
+          displayOrder
+        }
+      `)
+      .then((data) => {
+        setGalleryItems(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Failed to load gallery:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const galleryDetails = {
+    "red-custom-set": {
+      title: "Red Custom Set",
+      label: "Signature Piece",
+    },
+    "black-custom-set": {
+      title: "Black Custom Set",
+      label: "Performance Wear",
+    },
+    "lace-bras": {
+      title: "Lace Bras",
+      label: "Lingerie",
+    },
+    "one-pieces": {
+      title: "One Pieces",
+      label: "Dancewear",
+    },
+  };
+
   return (
     <section className="gallery-section">
       <div className="gallery-heading">
@@ -13,27 +58,47 @@ function GalleryPreview() {
         </p>
       </div>
 
-      <div className="editorial-gallery">
-        {siteContent.gallery.map((item, index) => (
-          <article
-            className={`editorial-card editorial-card-${index + 1}`}
-            key={item.title}
-            style={
-              item.image
-                ? {
-                    backgroundImage: `linear-gradient(rgba(8, 9, 8, 0.08), rgba(8, 9, 8, 0.55)), url(${item.image})`,
-                    backgroundPosition: item.imagePosition || "center",
-                  }
-                : undefined
-            }
-          >
-            <div className="editorial-card-content">
-              <p>{item.label}</p>
-              <h3>{item.title}</h3>
-            </div>
-          </article>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="gallery-loading">Loading the collection...</div>
+      ) : (
+        <div className="editorial-gallery">
+          {galleryItems.map((item, index) => {
+            const details = galleryDetails[item.slot] || {
+              title: "Femorestudio",
+              label: "Editorial Piece",
+            };
+
+            const imageUrl = item.image
+              ? urlFor(item.image).width(1400).quality(90).url()
+              : "";
+
+            return (
+              <article
+                className={`editorial-card editorial-card-${index + 1}`}
+                key={item._id}
+                role="img"
+                aria-label={item.altText}
+                style={
+                  imageUrl
+                    ? {
+                        backgroundImage: `linear-gradient(
+                          rgba(8, 9, 8, 0.08),
+                          rgba(8, 9, 8, 0.55)
+                        ), url(${imageUrl})`,
+                        backgroundPosition: item.imagePosition || "center",
+                      }
+                    : undefined
+                }
+              >
+                <div className="editorial-card-content">
+                  <p>{details.label}</p>
+                  <h3>{details.title}</h3>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
 
       <div className="gallery-cta">
         <Link to="/products" className="btn secondary">

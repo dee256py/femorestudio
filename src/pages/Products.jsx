@@ -1,15 +1,38 @@
 import { Link } from "react-router-dom";
-import { products } from "../data/products";
+import { useEffect, useState } from "react";
+import { client } from "../sanity/client";
 import ProductCard from "../components/ProductCard";
 import Reveal from "../components/Reveal";
 
 function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    client
+      .fetch(`
+        *[_type == "product"] | order(displayOrder asc) {
+          _id,
+          title,
+          category,
+          description,
+          price,
+          image,
+          featured,
+          displayOrder
+        }
+      `)
+      .then((data) => setProducts(data))
+      .catch(console.error);
+  }, []);
+
   return (
     <main>
       <Reveal>
         <section className="page-header">
           <p className="eyebrow">The collection</p>
+
           <h1>Products</h1>
+
           <p className="script-text">made to move</p>
 
           <p className="page-intro">
@@ -23,7 +46,7 @@ function Products() {
       <Reveal>
         <div className="products-grid">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       </Reveal>
@@ -31,6 +54,7 @@ function Products() {
       <Reveal>
         <section className="custom-order-section">
           <p className="eyebrow">Custom orders</p>
+
           <h2>Made around your body, movement, and vision.</h2>
 
           <div className="custom-order-grid">
